@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<!-- Snow -->
+<!-- Snow container -->
 <div class="snow"></div>
 
 <div class="container">
@@ -78,6 +78,19 @@
             heartsContainer.appendChild(heart);
             setTimeout(() => heart.remove(), 5000);
         }
+    }
+
+    // Snowflakes
+    const snowContainer = document.querySelector('.snow');
+    for(let i=0; i<50; i++){ // 50 snowflakes
+        const flake = document.createElement('div');
+        flake.classList.add('snowflake');
+        flake.innerHTML = '❄';
+        flake.style.left = Math.random()*100 + 'vw';
+        flake.style.fontSize = (8 + Math.random()*12) + 'px';
+        flake.style.animationDuration = (5 + Math.random()*5) + 's';
+        flake.style.opacity = Math.random();
+        snowContainer.appendChild(flake);
     }
 </script>
 </body>
