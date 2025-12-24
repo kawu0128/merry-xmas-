@@ -69,7 +69,7 @@ body {
     transform-origin: top;
     transition: transform 1s ease;
     border-radius: 10px;
-    overflow: visible;
+    overflow: auto;
     padding: 20px;
 }
 
