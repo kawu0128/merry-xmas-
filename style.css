@@ -1,30 +1,33 @@
-/* Hearts */
-#hearts {
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-    z-index: 10;
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #000;
+    color: #fff;
+    overflow: hidden;
 }
 
-.heart {
-    position: absolute;
-    top: 100%;
-    color: #ff4d6d;
-    font-size: 20px;
-    animation: heartRise 5s linear forwards;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    padding: 20px;
+    /* Your background image */
+    background: url('img/page-bg.png') no-repeat center center / cover;
 }
 
-@keyframes heartRise {
-    0% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100vh) scale(1.5);
-        opacity: 0;
-    }
+/* Animated title with text background */
+.animated {
+    font-family: 'Charm', cursive;
+    font-size: clamp(2.5rem, 6vw, 6rem);
+    background: url('img/text-bg.png') no-repeat;
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: moveBg 60s linear infinite;
+}
+
 }
