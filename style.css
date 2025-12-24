@@ -69,7 +69,6 @@ body {
     transition: transform 1s ease;
     border-radius: 10px;
     overflow-y: auto;
-    max-height: 400px;
 }
 
 .letter.open {
