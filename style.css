@@ -14,11 +14,10 @@ body {
     text-align: center;
     height: 100vh;
     padding: 20px;
-    /* Your background image */
     background: url('img/page-bg.png') no-repeat center center / cover;
 }
 
-/* Animated title with text background */
+/* Animated title */
 .animated {
     font-family: 'Charm', cursive;
     font-size: clamp(2.5rem, 6vw, 6rem);
@@ -30,4 +29,113 @@ body {
     animation: moveBg 60s linear infinite;
 }
 
+/* Typing text */
+#typing {
+    font-size: 1.3rem;
+    margin: 20px 0;
 }
+
+/* Love Button */
+.love-btn {
+    background: #ff4d6d;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.love-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ff4d6d;
+}
+
+/* Letter */
+.letter {
+    position: relative;
+    width: 320px;
+    height: 200px;
+    background: #f8f1e4;
+    color: #333;
+    margin-top: 30px;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 1s ease;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.letter.open {
+    transform: scaleY(1);
+}
+
+.letter-content {
+    padding: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+    animation: fadeIn 2s ease forwards;
+    opacity: 0;
+}
+
+.letter.open .letter-content {
+    opacity: 1;
+}
+
+.signature {
+    margin-top: 15px;
+    font-style: italic;
+}
+
+/* Heart burst */
+#hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    z-index: 10;
+}
+
+.heart {
+    position: absolute;
+    top: 100%;
+    color: #ff4d6d;
+    font-size: 20px;
+    animation: heartRise 5s linear forwards;
+}
+
+@keyframes heartRise {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+}
+
+/* Snow effect */
+.snow::before,
+.snow::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 40% 70%, white, transparent),
+        radial-gradient(2px 2px at 60% 40%, white, transparent),
+        radial-gradient(2px 2px at 80% 60%, white, transparent);
+    background-size: 300px 300px;
+    animation: snow 15s linear infinite;
+    pointer-events: none;
+}
+
+.snow::after {
+    animation-duration: 25s;
+    opacity: 0.5;
+}
+
+@keyframes snow { to { transform: translateY(100%); } }
+@keyframes moveBg { from { background-position: 0% 30%; } to { background-position: 100% 50%; } }
+
+.hint { margin-top: 15px; font-size: 0.9rem; opacity: 0.7; }
