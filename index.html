@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merry Christmas El ❤️</title>
+<link href="https://fonts.googleapis.com/css?family=Charm" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Snow -->
+<div class="snow"></div>
+
 <div class="container">
     <h1 class="animated">Merry Christmas El 🎄❤️</h1>
 
@@ -7,40 +21,36 @@
     <div class="letter" id="letter">
         <div class="letter-content">
             <p>
-                TO My El ❤️<br><br>
+                My dearest El ❤️<br><br>
                 This Christmas is special because I have you.  
                 Thank you for your love, patience, and for always making me smile.  
                 No matter where life takes us, I promise to choose you every day.  
-                I love you more than words can say.
+                I love you more than words can say 💖✨
             </p>
             <p class="signature">— Yours always 💕</p>
         </div>
     </div>
 
-    <!-- Heart Burst Container -->
+    <!-- Heart Burst -->
     <div id="hearts"></div>
 
+    <!-- Love Button -->
     <button class="love-btn" onclick="openLetter()">I Love You 💌</button>
-
-    <small class="hint">Click anywhere to enable music 🎵</small>
 </div>
 
-<script>
-    // Enable music
-    document.body.addEventListener("click", () => {
-        const music = document.getElementById("bgMusic");
-        music.muted = false;
-        music.play();
-        document.querySelector(".hint").style.display = "none";
-    });
+<!-- Music -->
+<audio id="bgMusic" loop>
+    <source src="music/musicc.mp3" type="audio/mpeg">
+</audio>
 
+<script>
     // Typing effect
     const text = "Wishing you love, joy, and magical moments ✨";
     let i = 0;
     const typing = document.getElementById("typing");
 
     function typeEffect() {
-        if (i < text.length) {
+        if(i < text.length){
             typing.innerHTML += text.charAt(i);
             i++;
             setTimeout(typeEffect, 80);
@@ -48,12 +58,16 @@
     }
     typeEffect();
 
-    // Open love letter + heart burst
+    // Open letter + heart burst + play music
     function openLetter() {
         const letter = document.getElementById("letter");
         letter.classList.add("open");
 
-        // Create hearts
+        // Play music
+        const music = document.getElementById("bgMusic");
+        music.play();
+
+        // Heart burst
         const heartsContainer = document.getElementById("hearts");
         for(let i=0; i<20; i++){
             const heart = document.createElement("div");
@@ -62,9 +76,9 @@
             heart.style.animationDuration = (2 + Math.random()*3) + "s";
             heart.style.fontSize = (20 + Math.random()*20) + "px";
             heartsContainer.appendChild(heart);
-
-            // Remove heart after animation
             setTimeout(() => heart.remove(), 5000);
         }
     }
 </script>
+</body>
+</html>
